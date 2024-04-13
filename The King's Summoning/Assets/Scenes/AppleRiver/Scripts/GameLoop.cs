@@ -21,9 +21,8 @@ public class Script : MonoBehaviour
         public float y;
         public float speed;
         public float lastLogSpawnTime;
-        public float maxLogSpawnInterval;
         public float minLogSpawnInterval;
-        public List<GameObject> logs;
+        public GameObject log;
     }
     private GameObject playerLog = null;
 
@@ -34,11 +33,10 @@ public class Script : MonoBehaviour
         {
             Stream stream = new Stream {
                 y = i * 1.5f,
-                speed = 1.0f + (i + 1) / 4.0f,
-                lastLogSpawnTime = UnityEngine.Random.Range(-2f, 2f),
-                maxLogSpawnInterval = 10.0f,
-                minLogSpawnInterval = 5.0f - i / 15.0f,
-                logs = new List<GameObject>()
+                speed = 4.0f,
+                lastLogSpawnTime = 0,
+                minLogSpawnInterval = i * 2f,
+                log = null
             };
             streams.Add(stream);
         }
@@ -65,27 +63,21 @@ public class Script : MonoBehaviour
         {
             Stream stream = streams[i];
 
-            if (Time.time - stream.lastLogSpawnTime > stream.minLogSpawnInterval)
+            if (Time.time - stream.lastLogSpawnTime > stream.minLogSpawnInterval && stream.log == null)
             {
                 stream.lastLogSpawnTime = Time.time;
                 Vector3 position = new  Vector3(15 + UnityEngine.Random.Range(-stream.speed / 1.2f, stream.speed / 1.2f), stream.y, 10);
-                GameObject log = Instantiate(BaseLog, position, quaternion.identity);
-                log.GetComponent<LogBehavior>().speed = stream.speed;
-                log.GetComponent<LogBehavior>().setRandomColor();
-
-                stream.logs.Add(log);
+                stream.log = Instantiate(BaseLog, position, quaternion.identity);
+                stream.log.GetComponent<LogBehavior>().speed = stream.speed;
+                stream.log.GetComponent<LogBehavior>().setRandomColor();
                 streams[i] = stream; // Replace the old Stream object with the new one
             }
 
             // Prune of screen logs
-            for (int j = 0; j < stream.logs.Count; j++)
-            {
-                GameObject log = stream.logs[j];
-                if (log.transform.position.x < -12)
-                {   
-                    stream.logs.RemoveAt(j);
-                    log.GetComponent<LogBehavior>().DestroyLog();
-                }
+            GameObject log = stream.log;
+            if (stream.log != null && log.transform.position.x < -12)
+            {   
+                log.GetComponent<LogBehavior>().DestroyLog();
             }
         }
 
@@ -96,7 +88,6 @@ public class Script : MonoBehaviour
             playerLog = null;
             level = 0;
         }
-
 
         // Move the player to the log
         if (playerLog != null)
@@ -160,27 +151,16 @@ public class Script : MonoBehaviour
         
 
         Stream stream = streams[level];
-        float rightMostLog = -12;
-        foreach (GameObject log in stream.logs)
-        {
-            bool correctColor = log.GetComponent<LogBehavior>().color == color;
-            bool closeEnough = Mathf.Abs(log.transform.position.x - Player.transform.position.x) < 8f;
-            bool logOnScreen = log.transform.position.x > -9;
-            if (correctColor && closeEnough && logOnScreen)
-            {
-                if (log.transform.position.x > rightMostLog)
-                {
-                    rightMostLog = log.transform.position.x;
-                    playerLog = log;
-                }
-            }
-        }
-
-        if (playerLog != null && rightMostLog > -12)
+        GameObject log = stream.log;
+        bool correctColor = log.GetComponent<LogBehavior>().color == color;
+        if (correctColor)
         {
             level++;
+            playerLog = log;
+        } else
+        {
+            level = 0;
+            playerLog = null;
         }
     }
-
-
 }
