@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0becfc4a382e244a9dfe52580629a17, type: 3}
+  m_Name: Chapter 1
+  m_EditorClassIdentifier: 
+  CurrentDialogue: 0
+  DialogueEntries:
+  - character: 0
+    Dialogue: Squire! I summon you!
+    SceneToLoad: 
+  - character: 1
+    Dialogue: Yes king?
+    SceneToLoad: 
+  - character: 0
+    Dialogue: The other kings and I have a bet....
+    SceneToLoad: 
+  - character: 1
+    Dialogue: Yes?
+    SceneToLoad: 
+  - character: 0
+    Dialogue: We bet on who could draw the best circle. And now you shall do it for
+      me.
+    SceneToLoad: 
+  - character: 1
+    Dialogue: Don't we have more pressing issues my king?
+    SceneToLoad: 
+  - character: 0
+    Dialogue: Follow my orders squire!
+    SceneToLoad: 
+  - character: 1
+    Dialogue: Yes my king.
+    SceneToLoad: 
+  - character: 1
+    Dialogue: Yes my king.
+    SceneToLoad: Perfect circle

@@ -27,6 +27,11 @@ public class CalculatePerfectPos : MonoBehaviour
     private Vector2 startPos;
     private Vector2 endPos;
 
+
+    public static event Action NotBigEnough;
+    public static event Action NotClosed;
+    public static event Action SuccesfulCircle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +45,7 @@ public class CalculatePerfectPos : MonoBehaviour
     }
 
     public bool CircleIsBigEnough(){
-        return Vector2.Distance(startingTopLeft, startingBottomRight)>4f;
+        return Vector2.Distance(startingTopLeft, startingBottomRight)>3f;
     }
 
     public bool CircleFinished(){
@@ -68,14 +73,18 @@ public class CalculatePerfectPos : MonoBehaviour
             }
         }
 
-        linePositions.linesPositions.Clear();
         if(!CircleIsBigEnough()){
             Debug.Log("Draw a bigger circle");
+            NotBigEnough?.Invoke();
         }else if(!CircleFinished()){
             Debug.Log("Close the circle");
+            NotClosed?.Invoke();
         }else{
             Debug.Log($"Circle score: {CirclePercentage}%");
+            SuccesfulCircle?.Invoke();
         }
+
+        linePositions.linesPositions.Clear();
     }
 
     private void CalcFurthestPoints(){
@@ -115,7 +124,7 @@ public class CalculatePerfectPos : MonoBehaviour
         for(int rowI=0; rowI<totalRows; rowI++){
             for(int colI=0; colI<totalColumns; colI++){
                 pointsMatrix[rowI, colI] = new Vector2(leftMostPoint+colI*CellSize+halfCell, topMostPoint-rowI*CellSize-halfCell);
-                Instantiate(circle.transform, pointsMatrix[rowI, colI], Quaternion.identity);
+                //Instantiate(circle.transform, pointsMatrix[rowI, colI], Quaternion.identity);
             }
         }
     }
@@ -153,8 +162,8 @@ public class CalculatePerfectPos : MonoBehaviour
         }
 
         BestPoint = bestPoint;
-        GameObject c = Instantiate(circle, bestPoint, Quaternion.identity);
-        c.GetComponent<SpriteRenderer>().color = Color.red;
+        //GameObject c = Instantiate(circle, bestPoint, Quaternion.identity);
+        //c.GetComponent<SpriteRenderer>().color = Color.red;
         CirclePercentage=Mathf.Pow(bestPercentage/100f, scaleFactor)*100f;
     }
 
@@ -167,7 +176,7 @@ public class CalculatePerfectPos : MonoBehaviour
 
         CellSize = CellSize/10f;
         
-        GameObject a = Instantiate(circle, new Vector2(leftMostPoint,topMostPoint), Quaternion.identity);
+        /*GameObject a = Instantiate(circle, new Vector2(leftMostPoint,topMostPoint), Quaternion.identity);
         a.GetComponent<SpriteRenderer>().color = Color.blue;
         a.name="top left";
         GameObject b = Instantiate(circle, new Vector2(rightMostPoint,topMostPoint), Quaternion.identity);
@@ -180,6 +189,6 @@ public class CalculatePerfectPos : MonoBehaviour
 
         GameObject d = Instantiate(circle, new Vector2(leftMostPoint,bottomMostPoint), Quaternion.identity);
         d.GetComponent<SpriteRenderer>().color = Color.blue;
-        d.name="bot left";
+        d.name="bot left";*/
     }
 }

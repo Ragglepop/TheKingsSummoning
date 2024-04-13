@@ -50,7 +50,7 @@ public class Drawing : MonoBehaviour
 
     private void CreateBrush(){
         if(currentLineRenderer!=null){
-            Destroy(currentLineRenderer);
+            Destroy(currentLineRenderer.gameObject);
         }
 
         GameObject brushInstance = Instantiate(brush);
