@@ -20,11 +20,10 @@ public class Script : MonoBehaviour
     {
         public float y;
         public float speed;
-        public float lastLogSpawnTime;
-        public float minLogSpawnInterval;
         public GameObject log;
     }
     private GameObject playerLog = null;
+    private float lastLogSpawnTime = -10.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,9 +32,7 @@ public class Script : MonoBehaviour
         {
             Stream stream = new Stream {
                 y = i * 1.5f,
-                speed = 4.0f,
-                lastLogSpawnTime = 0,
-                minLogSpawnInterval = i * 2f,
+                speed = 5.5f,
                 log = null
             };
             streams.Add(stream);
@@ -63,10 +60,10 @@ public class Script : MonoBehaviour
         {
             Stream stream = streams[i];
 
-            if (Time.time - stream.lastLogSpawnTime > stream.minLogSpawnInterval && stream.log == null)
+            if (Time.time - lastLogSpawnTime > 1.2f && stream.log == null && level <= i)
             {
-                stream.lastLogSpawnTime = Time.time;
-                Vector3 position = new  Vector3(15 + UnityEngine.Random.Range(-stream.speed / 1.2f, stream.speed / 1.2f), stream.y, 10);
+                lastLogSpawnTime = Time.time;
+                Vector3 position = new  Vector3(12, stream.y, 10);
                 stream.log = Instantiate(BaseLog, position, quaternion.identity);
                 stream.log.GetComponent<LogBehavior>().speed = stream.speed;
                 stream.log.GetComponent<LogBehavior>().setRandomColor();
@@ -78,6 +75,10 @@ public class Script : MonoBehaviour
             if (stream.log != null && log.transform.position.x < -12)
             {   
                 log.GetComponent<LogBehavior>().DestroyLog();
+                if (playerLog == log)
+                {
+                    resetStream();
+                }
             }
         }
 
@@ -85,8 +86,7 @@ public class Script : MonoBehaviour
         if (Player.transform.position.x < -10 || Player.transform.position.x > 10)
         {
             Debug.Log("Player fell in water");
-            playerLog = null;
-            level = 0;
+            resetStream();
         }
 
         // Move the player to the log
@@ -118,6 +118,21 @@ public class Script : MonoBehaviour
         level++;
     }
 
+    public void resetStream() {
+        level = 0;
+        playerLog = null;
+
+        for (int i = 0; i < streams.Count; i++)
+        {
+            Stream stream = streams[i];
+            if (stream.log != null)
+            {
+                stream.log.GetComponent<LogBehavior>().DestroyLog();
+                stream.log = null;
+            }
+            
+        }
+    }
     public void OnBlueButtonClicked()
     {
         moveToLogByColor(LogBehavior.LogColor.Blue);
@@ -159,8 +174,7 @@ public class Script : MonoBehaviour
             playerLog = log;
         } else
         {
-            level = 0;
-            playerLog = null;
+            resetStream();
         }
     }
 }

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 46a5a60142ec33c409a006776f4c0f21
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Player: {fileID: 6321016308708677617, guid: e7878351dbbc05840b7a6e80399237f3, type: 3}
+  - BaseLog: {fileID: 1887957470276897372, guid: 6791fb59ea91bbd49bea5c85d496cd22, type: 3}
+  - blueButton: {instanceID: 0}
+  - redButton: {instanceID: 0}
+  - greenButton: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

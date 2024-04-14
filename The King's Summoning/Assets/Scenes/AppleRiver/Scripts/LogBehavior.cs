@@ -20,8 +20,6 @@ public class LogBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.localScale = new Vector3(3, 1.2f, 1);
-
         // Set the log's color
         switch (color)
         {
@@ -47,7 +45,7 @@ public class LogBehavior : MonoBehaviour
     public void setRandomColor()
     {
         color = (LogColor) iColor;
-        iColor = (iColor + 1) % MAX_COLOR;
+        iColor = (iColor + Random.Range(0, 30)) % MAX_COLOR;
     }
 
     public void DestroyLog()
