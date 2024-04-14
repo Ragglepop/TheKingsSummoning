@@ -10,28 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0becfc4a382e244a9dfe52580629a17, type: 3}
-  m_Name: Chapter 2
+  m_Name: Chapter 3
   m_EditorClassIdentifier: 
   DialogueEntries:
   - character: 0
-    Dialogue: Squire! I summon you!
+    Dialogue: I summon you squire!
     SceneToLoad: 
   - character: 1
-    Dialogue: Yes king.
+    Dialogue: Yes king?
     SceneToLoad: 
   - character: 0
-    Dialogue: I need help with positioning these flowers.
+    Dialogue: Squire, as you know I am quite famous for my apple pies. The apples
+      I use for the recipe are on Wendigoo island.
     SceneToLoad: 
   - character: 1
-    Dialogue: They look fine to me.
+    Dialogue: Wendigoo island!? That's across the crocodile river! Sure our local
+      produce will suffi....
     SceneToLoad: 
   - character: 0
-    Dialogue: They don't look "fine" squire! Go move the around, I will tell you
-      how many are in the right place each time you move them.
+    Dialogue: No squire! They will not suffice, now go get me those apples or I'll
+      have your head!
     SceneToLoad: 
   - character: 1
-    Dialogue: Yes king.
+    Dialogue: Yes king....
     SceneToLoad: 
   - character: 1
-    Dialogue: Yes king.
-    SceneToLoad: FlowerArrangement
+    Dialogue: Yes king....
+    SceneToLoad: 

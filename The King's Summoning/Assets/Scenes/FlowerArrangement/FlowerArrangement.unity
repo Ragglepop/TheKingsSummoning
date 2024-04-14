@@ -225,6 +225,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7016481864845245476, guid: 791da25f80bd9a348a2d89c6965bcde8, type: 3}
   m_PrefabInstance: {fileID: 35154309}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &47938403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5392211309875561835, guid: 165b57a56f59b144c94e85060d309b8c, type: 3}
+  m_PrefabInstance: {fileID: 308111461}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &86787918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -987,6 +992,7 @@ MonoBehaviour:
   - {fileID: 1959870025}
   - {fileID: 1373329177}
   - {fileID: 532815825}
+  checkButton: {fileID: 47938403}
   flowerSprites:
   - {fileID: 7482667652216324306, guid: c902d03877cf990469bb763b08f531d5, type: 3}
   - {fileID: -9095717837082945937, guid: 22b98fc5f62c1fc4c95f5151f8d07c68, type: 3}

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AppleRiver/AppleRiver.unity
     guid: 721642e39167e8b48ba631d3f35b2fcd
+  - enabled: 1
+    path: Assets/Scenes/FlowerArrangement/FlowerArrangement.unity
+    guid: 68ed356ecc753064c83dbe633a1218b7
   m_configObjects: {}
