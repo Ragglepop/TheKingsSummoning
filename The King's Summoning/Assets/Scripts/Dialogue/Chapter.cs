@@ -9,7 +9,7 @@ public class Chapter : ScriptableObject
 {
     [Serializable]
     public struct DialogueOption{
-        public DialogueSystem.Character character;
+        public GameState.Character character;
         public string Dialogue;
         public string SceneToLoad;
     }

@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b667afa9d1947d4a831b043dc9b80bc, type: 3}
+  m_Script: {fileID: 11500000, guid: f64a15edc8948e14c9029d844e29f731, type: 3}
   m_Name: GameState
   m_EditorClassIdentifier: 
-  currentLevel: 0
+  CurrentChapter: 0
+  Chapters:
+  - {fileID: 11400000, guid: 50570ded90d32a640b92aa5e71796c53, type: 2}

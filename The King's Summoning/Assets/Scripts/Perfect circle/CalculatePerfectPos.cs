@@ -11,6 +11,7 @@ public class CalculatePerfectPos : MonoBehaviour
     public LinePositions linePositions;
     public float StartCellSize;
     public float CellSize;
+    public float HighScore;
     private float leftMostPoint;
     private float topMostPoint;
     private float rightMostPoint;
@@ -81,6 +82,9 @@ public class CalculatePerfectPos : MonoBehaviour
             NotClosed?.Invoke();
         }else{
             Debug.Log($"Circle score: {CirclePercentage}%");
+            if(CirclePercentage>HighScore){
+                HighScore = CirclePercentage;
+            }
             SuccesfulCircle?.Invoke();
         }
 

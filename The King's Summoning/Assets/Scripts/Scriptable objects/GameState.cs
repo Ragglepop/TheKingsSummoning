@@ -2,17 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.SearchService;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/CreateGameStateSO", order = 1)]
+[CreateAssetMenu(fileName = "GameState", menuName = "ScriptableObjects/CreateGameState", order = 2)]
 public class GameState : ScriptableSingleton<GameState>
 {
-    public enum Level{
-        Start,
-        PerfectCircle,
-        AppleRiver,
-        KingsArmor,
+    public enum Character{
+        TheFatKing,
+        Squire
     }
 
-    [SerializeField] public Level currentLevel;
+    public int CurrentChapter;
+    public int CurrentDialogue;
+    
+    public Chapter[] Chapters;
+    public string LastLoadedLevel;
 }

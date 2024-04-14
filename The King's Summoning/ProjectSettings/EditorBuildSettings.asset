@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Dialogue/Dialogue.unity
     guid: b8d536fb721055f4285f0086aa0a8019
   - enabled: 1
-    path: Assets/Scenes/Perfect circle.unity
+    path: Assets/Scenes/Perfect circle/Perfect circle.unity
     guid: a8784b4b1a4837440ab6f476bd9b5de6
   - enabled: 1
     path: Assets/Scenes/AppleRiver/AppleRiver.unity
