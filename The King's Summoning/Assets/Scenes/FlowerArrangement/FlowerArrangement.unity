@@ -995,9 +995,7 @@ MonoBehaviour:
   checkButton: {fileID: 47938403}
   flowerSprites:
   - {fileID: 7482667652216324306, guid: c902d03877cf990469bb763b08f531d5, type: 3}
-  - {fileID: -9095717837082945937, guid: 22b98fc5f62c1fc4c95f5151f8d07c68, type: 3}
   - {fileID: -2413806693520163455, guid: c0d0bf641df974b47a3efa2e1a8f5ed8, type: 3}
-  - {fileID: 2747690628134850419, guid: a5c7d3153b62edf419672a729fdb66ea, type: 3}
   - {fileID: 7482667652216324306, guid: 6a74d120fdee6a646ba5665f207869b9, type: 3}
   BaseFlower: {fileID: 959391582406420705, guid: 58964247bebc50b4b962d1c987fa1688, type: 3}
 --- !u!1001 &1258198396

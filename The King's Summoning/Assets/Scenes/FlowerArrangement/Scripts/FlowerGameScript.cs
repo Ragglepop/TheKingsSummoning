@@ -18,7 +18,6 @@ public class FlowerGameScript : MonoBehaviour
     private int[] correctArrangement = { 0, 1, 0, 0, 1 };
 
     private const int FLOWER_COUNT = 5;
-    private const int FLOWER_TYPES = 3;
 
     struct FlowerState
     {
@@ -39,10 +38,10 @@ public class FlowerGameScript : MonoBehaviour
         flowers = new FlowerState[FLOWER_COUNT];
         for (int i = 0; i < FLOWER_COUNT; i++)
         {
-            correctArrangement[i] = UnityEngine.Random.Range(0, FLOWER_TYPES);
+            correctArrangement[i] = UnityEngine.Random.Range(0, flowerSprites.Length);
 
             flowers[i] = new FlowerState(
-                type: i % FLOWER_TYPES,
+                type: i % flowerSprites.Length,
                 flower: Instantiate(BaseFlower, new Vector3(-3.3f + i * 1.65f, 0, 0), quaternion.identity)
             );
             flowers[i].flower.GetComponent<SpriteRenderer>().sprite = flowerSprites[flowers[i].type];
@@ -58,15 +57,15 @@ public class FlowerGameScript : MonoBehaviour
         checkButton.GetComponent<Button>().onClick.AddListener(OnCheckButtonClicked);
     }
 
-    void reset() 
+    void resetflowers() 
     {
         for (int i = 0; i < FLOWER_COUNT; i++)
         {
-            flowers[i].type = i % FLOWER_TYPES;
+            flowers[i].type = i % flowerSprites.Length;
             flowers[i].flower.GetComponent<SpriteRenderer>().sprite = flowerSprites[flowers[i].type];
             flowers[i].flower.GetComponent<SpriteRenderer>().color = Color.red;
 
-            correctArrangement[i] = UnityEngine.Random.Range(0, FLOWER_TYPES);
+            correctArrangement[i] = UnityEngine.Random.Range(0, flowerSprites.Length);
         }
     }
     // Update is called once per frame
@@ -81,11 +80,11 @@ public class FlowerGameScript : MonoBehaviour
         // Change the flower sprite to a different sprite
         if (isUp)
         {
-            flowers[index].type = (flowers[index].type + 1) % FLOWER_TYPES;
+            flowers[index].type = (flowers[index].type + 1) % flowerSprites.Length;
         }
         else
         {
-            flowers[index].type = (flowers[index].type + FLOWER_TYPES - 1) % FLOWER_TYPES;
+            flowers[index].type = (flowers[index].type + flowerSprites.Length - 1) % flowerSprites.Length;
         }
 
         GameObject flower = flowers[index].flower;
