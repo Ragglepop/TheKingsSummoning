@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LogBehavior : MonoBehaviour
@@ -25,12 +26,20 @@ public class LogBehavior : MonoBehaviour
         {
             case LogColor.Red:
                 GetComponent<SpriteRenderer>().color = Color.red;
+                // Set sprite text
+                // GetComponentInChildren<TextMeshPro>().text = "Red";
+
                 break;
             case LogColor.Green:
                 GetComponent<SpriteRenderer>().color = Color.green;
+                // Set sprite text
+                // GetComponentInChildren<TextMeshPro>().text = "Green";
+
                 break;
             case LogColor.Blue:
                 GetComponent<SpriteRenderer>().color = Color.blue;
+                // Set sprite text
+                // GetComponentInChildren<TextMeshPro>().text = "Blue";
                 break;
         }
     }

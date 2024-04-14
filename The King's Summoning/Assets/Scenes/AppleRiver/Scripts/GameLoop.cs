@@ -24,6 +24,7 @@ public class Script : MonoBehaviour
     }
     private GameObject playerLog = null;
     private float lastLogSpawnTime = -10.0f;
+    private const float WAVE_WIDTH = 2.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,7 @@ public class Script : MonoBehaviour
         for (int i = 0; i < stream_count; i++)
         {
             Stream stream = new Stream {
-                y = i * 1.5f,
+                y = i * WAVE_WIDTH,
                 speed = 5.5f,
                 log = null
             };
@@ -47,7 +48,7 @@ public class Script : MonoBehaviour
         btn = greenButton.GetComponent<Button>();
         btn.onClick.AddListener(OnGreenButtonClicked);
 
-        Player = Instantiate(Player, new Vector3(0, 1.5f, 0), quaternion.identity);
+        Player = Instantiate(Player, new Vector3(0, 0, 0), quaternion.identity);
 
         // Focus camera on player
         Camera.main.transform.position = new Vector3(0, Player.transform.position.y, -10);
@@ -63,7 +64,7 @@ public class Script : MonoBehaviour
             if (Time.time - lastLogSpawnTime > 1.2f && stream.log == null && level <= i)
             {
                 lastLogSpawnTime = Time.time;
-                Vector3 position = new  Vector3(12, stream.y, 10);
+                Vector3 position = new  Vector3(12, stream.y, 9);
                 stream.log = Instantiate(BaseLog, position, quaternion.identity);
                 stream.log.GetComponent<LogBehavior>().speed = stream.speed;
                 stream.log.GetComponent<LogBehavior>().setRandomColor();
@@ -105,8 +106,9 @@ public class Script : MonoBehaviour
                 Player.transform.position.z
             );
         }
+
         // Move the camera to follow the player
-        Player.transform.position = new Vector3(Player.transform.position.x, level * 1.5f - 1.75f, 8);
+        Player.transform.position = new Vector3(Player.transform.position.x, level * WAVE_WIDTH - 2.6f, 4);
         Camera.main.transform.position = new Vector3(0, Player.transform.position.y + 1.75f, Camera.main.transform.position.z);
     }
 
