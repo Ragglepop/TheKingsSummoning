@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0becfc4a382e244a9dfe52580629a17, type: 3}
   m_Name: Chapter 1
   m_EditorClassIdentifier: 
-  CurrentDialogue: 0
   DialogueEntries:
   - character: 0
     Dialogue: Squire! I summon you!
