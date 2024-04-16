@@ -6,20 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameState state;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public static void Load(String level){
+    public void LoadLevel(string level){
+        state.LastLoadedLevel=level;
         SceneManager.LoadScene(level);
-        GameState.instance.LastLoadedLevel = level;
+    }
+
+    public void LoadDialogueLevel(){
+        state.CurrentDialogue=0;
+        LoadLevel("Dialogue");
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DialogueEntries:
   - character: 0
-    Dialogue: I summon you squire!
+    Dialogue: I summon you Squire!
     SceneToLoad: 
   - character: 1
     Dialogue: Yes king?
@@ -24,11 +24,11 @@ MonoBehaviour:
       I use for the recipe are on Wendigoo island.
     SceneToLoad: 
   - character: 1
-    Dialogue: Wendigoo island!? That's across the crocodile river! Sure our local
+    Dialogue: Wendigoo island!? That's across the crocodile river! Surely our local
       produce will suffi....
     SceneToLoad: 
   - character: 0
-    Dialogue: No squire! They will not suffice, now go get me those apples or I'll
+    Dialogue: No Squire! They will not suffice, now go get me those apples or I'll
       have your head!
     SceneToLoad: 
   - character: 1
@@ -36,4 +36,4 @@ MonoBehaviour:
     SceneToLoad: 
   - character: 1
     Dialogue: Yes king....
-    SceneToLoad: 
+    SceneToLoad: AppleRiver

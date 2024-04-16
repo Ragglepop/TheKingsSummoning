@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -137,5 +138,11 @@ public class FlowerGameScript : MonoBehaviour
     public void victory()
     {
         Debug.Log("Victory!");
+        StartCoroutine(WaitThenVictory());
+    }
+
+    public IEnumerator WaitThenVictory(){
+        yield return new WaitForSeconds(4);
+        //LevelLoader.LoadDialogueLevel();
     }
 }

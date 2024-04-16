@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0becfc4a382e244a9dfe52580629a17, type: 3}
+  m_Name: Chapter 4
+  m_EditorClassIdentifier: 
+  DialogueEntries:
+  - character: 0
+    Dialogue: I summon you Squire!
+    SceneToLoad: 
+  - character: 1
+    Dialogue: Yes king?
+    SceneToLoad: 
+  - character: 0
+    Dialogue: Surely you know of my status as a great general that leads from the
+      front?
+    SceneToLoad: 
+  - character: 1
+    Dialogue: Of course my king.
+    SceneToLoad: 
+  - character: 0
+    Dialogue: Well, that's a lie. Here's my armour, if anyone asks, tell them you
+      are me. Enjoy the battle
+    SceneToLoad: 
+  - character: 1
+    Dialogue: :'(''
+    SceneToLoad: 
+  - character: 1
+    Dialogue: :'(''
+    SceneToLoad: War

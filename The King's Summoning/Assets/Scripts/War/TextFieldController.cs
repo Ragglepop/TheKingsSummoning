@@ -20,7 +20,9 @@ public class TextFieldController : MonoBehaviour
     public Button StartButton;
     public Button UnpauseButton;
     public Button ContinueButton;
+    public GameObject Victory;
     public GameObject WordAndTime;
+    public GameObject StartObject;
     public int wordIndex;
     private bool lost;
     public enum State{
@@ -38,6 +40,9 @@ public class TextFieldController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartObject.SetActive(true);
+        WordAndTime.SetActive(false);
+
         StartButton.onClick.AddListener(PlayGame);
         UnpauseButton.onClick.AddListener(PlayGame);
         RetryButton.onClick.AddListener(RetryGame);
@@ -61,7 +66,7 @@ public class TextFieldController : MonoBehaviour
         }
         
         float timeFraction = (Time.time-TimeOfLastWordChange)/Interval;
-        float width = 480-480*timeFraction;
+        float width = 560-560*timeFraction;
         //Debug.Log(width);
         TimeTransform.sizeDelta = new Vector2(width,11.5f);
 
@@ -115,6 +120,7 @@ public class TextFieldController : MonoBehaviour
             ContinueButton.gameObject.SetActive(false);
         }
         if(newState==State.Playing){
+            inputField.text = String.Empty;
             StartButton.gameObject.SetActive(false);
         }
         if(state==State.Paused && newState==State.Playing){
@@ -138,6 +144,7 @@ public class TextFieldController : MonoBehaviour
         }
         if(newState==State.Complete){
             ContinueButton.gameObject.SetActive(true);
+            Victory.SetActive(true);
             RetryButton.gameObject.SetActive(false);
         }
 
@@ -166,7 +173,12 @@ public class TextFieldController : MonoBehaviour
         yield return new WaitForSeconds(3);
         RetryButton.gameObject.SetActive(true);
         wordIndex=0;
+        CurrentWord.text = words[wordIndex];
         TimeOfLastWordChange = float.MaxValue-Interval;
         StopAllCoroutines();
+    }
+
+    public void StartGame(){
+        StartObject.SetActive(false);
     }
 }

@@ -33,7 +33,7 @@ MonoBehaviour:
     Dialogue: Don't we have more pressing issues my king?
     SceneToLoad: 
   - character: 0
-    Dialogue: Follow my orders squire!
+    Dialogue: Follow my orders Squire!
     SceneToLoad: 
   - character: 1
     Dialogue: Yes my king.

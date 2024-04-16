@@ -10,6 +10,8 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text KingText;
     public GameObject Squire;
     public TMP_Text SquireText;
+    public GameState state;
+    public LevelLoader loader;
 
     // Start is called before the first frame update
     void Start()
@@ -26,18 +28,18 @@ public class DialogueManager : MonoBehaviour
     public void Next(){
         Chapter currChapter = GetCurrentChapter();
         Chapter.DialogueOption currOption = GetCurrentDialogue();
-        GameState.instance.CurrentDialogue++;
+        state.CurrentDialogue++;
 
         DisplayDialogue();
     }
 
     private Chapter GetCurrentChapter(){
-        return GameState.instance.Chapters[GameState.instance.CurrentChapter];
+        return state.Chapters[state.CurrentChapter];
     }
 
     private Chapter.DialogueOption GetCurrentDialogue(){
         Chapter currChapter = GetCurrentChapter();
-        return currChapter.DialogueEntries[GameState.instance.CurrentDialogue];
+        return currChapter.DialogueEntries[state.CurrentDialogue];
     }
 
     private void DisplayDialogue(){
@@ -53,9 +55,9 @@ public class DialogueManager : MonoBehaviour
         }
 
         if(currDialogue.SceneToLoad!=String.Empty){
-            GameState.instance.CurrentChapter++;
-            GameState.instance.CurrentDialogue=0;
-            LevelLoader.Load(currDialogue.SceneToLoad);
+            state.CurrentChapter++;
+            state.CurrentDialogue=0;
+            loader.LoadLevel(currDialogue.SceneToLoad);
         }
     }
 }

@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f64a15edc8948e14c9029d844e29f731, type: 3}
+  m_Script: {fileID: 11500000, guid: 57edca839879699469263599dcc9fee6, type: 3}
   m_Name: GameState
   m_EditorClassIdentifier: 
-  CurrentChapter: 1
+  CurrentChapter: 0
   CurrentDialogue: 0
   Chapters:
   - {fileID: 11400000, guid: 50570ded90d32a640b92aa5e71796c53, type: 2}
   - {fileID: 11400000, guid: 04ad117b60da3534992cfb9190b13a1c, type: 2}
   - {fileID: 11400000, guid: ad3dad8459805c24f9b72afe1c888622, type: 2}
-  LastLoadedLevel: Perfect circle
+  - {fileID: 11400000, guid: e9389aa92728efa4dbd9cf7d7f304014, type: 2}
+  LastLoadedLevel: 

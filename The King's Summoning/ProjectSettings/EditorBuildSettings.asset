@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FlowerArrangement/FlowerArrangement.unity
     guid: 68ed356ecc753064c83dbe633a1218b7
+  - enabled: 1
+    path: Assets/Scenes/War/War.unity
+    guid: b260fbe0dda6ced4198ce6f8a9b49d45
+  - enabled: 1
+    path: Assets/Scenes/Flowers/Flowers.unity
+    guid: 613a17f36b3186d41891a85a5e079a76
   m_configObjects: {}
